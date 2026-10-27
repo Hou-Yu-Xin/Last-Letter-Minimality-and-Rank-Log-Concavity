@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Regression checks for off-diagonal transfer-polynomial log-concavity.
 
-Paper location: Corollary 5.8 and the transfer-regression row of Section 6.
+Paper location: Corollary 4.3 (Transfer log-concavity).
+The extended default run retains the first-draft regression ranges.
 Checked object: Phi_w^{r->q}=C_w^q+G_w^r for every q != r.
 Mathematical role: finite regression evidence for transfer closure, not proof.
 """
@@ -79,7 +80,7 @@ def main() -> None:
     payload = base_summary("transfer-polynomial regression")
     payload.update(
         {
-            "profile": "quick" if args.quick else "paper",
+            "profile": "quick" if args.quick else "extended",
             **summary,
             "result": "all assertions passed",
         }

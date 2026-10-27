@@ -1,0 +1,193 @@
+{
+  "source": "Rank Log-Concavity in Universal Coxeter Groups (second draft), Examples 5.1--5.3 and equation (3.5)",
+  "counting_method": "Enumerate position subsets, reject selected words with adjacent equal letters, and deduplicate reduced label words; embeddings retain multiplicity.",
+  "examples": {
+    "ababa_distinct_vs_embeddings": {
+      "word": "ababa",
+      "distinct_reduced_word_coefficients": [
+        1,
+        2,
+        2,
+        2,
+        2,
+        1
+      ],
+      "reduced_position_embedding_coefficients": [
+        1,
+        5,
+        6,
+        5,
+        2,
+        1
+      ],
+      "embedding_LC_failure_degree": 4,
+      "embedding_LC_defect": -1
+    },
+    "ababac_gain": {
+      "word": "ababac",
+      "append_letter": "b",
+      "gain_coefficients": [
+        0,
+        0,
+        1,
+        2,
+        2,
+        3,
+        3,
+        1
+      ],
+      "gain_LC_failure_degree": 4,
+      "gain_LC_defect": -2
+    },
+    "ab_diagonal_sum": {
+      "word": "ab",
+      "letter": "a",
+      "continuation_coefficients": [
+        1,
+        1,
+        1
+      ],
+      "gain_coefficients": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "diagonal_sum_coefficients": [
+        1,
+        1,
+        2,
+        1
+      ],
+      "diagonal_sum_LC_failure_degree": 1,
+      "diagonal_sum_LC_defect": -1
+    },
+    "abc_bac_same_rank_different_continuation": {
+      "words": [
+        "abc",
+        "bac"
+      ],
+      "append_letter": "a",
+      "A_abc_coefficients": [
+        1,
+        3,
+        3,
+        1
+      ],
+      "A_bac_coefficients": [
+        1,
+        3,
+        3,
+        1
+      ],
+      "C_abc_a_coefficients": [
+        1,
+        2,
+        3,
+        1
+      ],
+      "C_bac_a_coefficients": [
+        1,
+        2,
+        2,
+        1
+      ],
+      "A_abca_coefficients": [
+        1,
+        3,
+        5,
+        4,
+        1
+      ],
+      "A_baca_coefficients": [
+        1,
+        3,
+        4,
+        3,
+        1
+      ],
+      "A_abca_minus_A_baca_coefficients": [
+        0,
+        0,
+        1,
+        1
+      ]
+    }
+  },
+  "symbolic_nonnegative_defect_identity": {
+    "method": "Exact independent expansion in the polynomial ring Z[M_(k-2),M_(k-1),M_k,F_(k-1),F_k], implemented as integer coefficient dictionaries.",
+    "lhs": "M_(k-1)*(((M_k+M_(k-1)-F_k)*M_(k-1))-((M_(k-1)+M_(k-2)-F_(k-1))*M_k))",
+    "rhs": "(M_(k-1)^2-M_(k-2)*M_k)*(M_(k-1)-F_k)+M_k*(M_(k-1)*F_(k-1)-M_(k-2)*F_k)",
+    "lhs_expansion": [
+      {
+        "powers": {
+          "M_k_minus_1": 1,
+          "M_k": 1,
+          "F_k_minus_1": 1
+        },
+        "coefficient": 1
+      },
+      {
+        "powers": {
+          "M_k_minus_1": 2,
+          "F_k": 1
+        },
+        "coefficient": -1
+      },
+      {
+        "powers": {
+          "M_k_minus_1": 3
+        },
+        "coefficient": 1
+      },
+      {
+        "powers": {
+          "M_k_minus_2": 1,
+          "M_k_minus_1": 1,
+          "M_k": 1
+        },
+        "coefficient": -1
+      }
+    ],
+    "rhs_expansion": [
+      {
+        "powers": {
+          "M_k_minus_1": 1,
+          "M_k": 1,
+          "F_k_minus_1": 1
+        },
+        "coefficient": 1
+      },
+      {
+        "powers": {
+          "M_k_minus_1": 2,
+          "F_k": 1
+        },
+        "coefficient": -1
+      },
+      {
+        "powers": {
+          "M_k_minus_1": 3
+        },
+        "coefficient": 1
+      },
+      {
+        "powers": {
+          "M_k_minus_2": 1,
+          "M_k_minus_1": 1,
+          "M_k": 1
+        },
+        "coefficient": -1
+      }
+    ],
+    "lhs_minus_rhs": [],
+    "identity_holds_identically": true,
+    "scope": "The equality holds for arbitrary values of the five scalar parameters, independently of the inequalities used to prove nonnegativity."
+  },
+  "all_checks_passed": true,
+  "notes": [
+    "The four computations reproduce Examples 5.1--5.3 of the second draft.",
+    "The symbolic expansion checks equation (3.5).",
+    "Reproduce with python code/verify_examples.py; any failed check raises an exception and exits with nonzero status."
+  ]
+}

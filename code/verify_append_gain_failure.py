@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""Reproduce Example 6.1: a non-log-concave append-gain polynomial.
+"""Reproduce Example 5.3 (append gain): a non-log-concave append-gain polynomial.
 
-Paper location: Example 6.1.
+Paper location: Example 5.3, first part.
 Checked object: G_w^r for w=121213 and r=2 (one-based letters).
 Mathematical role: shows that append closure cannot require G itself to be
 log-concave.  The script prints the full coefficients and the failed defect.
@@ -29,7 +29,7 @@ def main() -> None:
     rhs = coefficients[3] * coefficients[5]
     assert lhs == 4 and rhs == 6 and lhs < rhs
 
-    payload = base_summary("Example 6.1 append-gain failure")
+    payload = base_summary("Example 5.3 append-gain failure")
     payload.update(
         {
             "word": "121213",
@@ -43,7 +43,7 @@ def main() -> None:
         }
     )
     write_json(args.output, payload)
-    print("Example 6.1 reproduced.")
+    print("Example 5.3 append-gain failure reproduced.")
     print(f"G coefficients: {coefficients}")
     print(f"trimmed coefficients: {trimmed}")
     print(f"failed defect: {lhs} < {rhs}")

@@ -3,7 +3,7 @@
   "counted_objects": "distinct reduced scattered words, not embeddings",
   "failures": 0,
   "integer_arithmetic": "exact",
-  "profile": "paper",
+  "profile": "extended",
   "python_version": "3.12.13",
   "ranges": [
     {

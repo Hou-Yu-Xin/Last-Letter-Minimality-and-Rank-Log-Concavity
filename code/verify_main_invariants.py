@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 """Regression checks for the main invariants and rank log-concavity.
 
-Paper locations: Append-Gain Recurrence and Theorems 4.8/2.8.
+Paper locations: Lemmas 2.1 and 2.2 and Theorem 1.1.
 Checked objects: direct-enumeration versus frontier recurrence, continuation
 log-concavity, the last-letter ratio minimum, and rank log-concavity.
-The default run uses exactly the paper ranges and 1,006,729 recurrence states.
+The extended default run retains the first-draft ranges and checks
+1,006,729 recurrence states. The independent counts reported in Section 5.2
+are reproduced by independent_checks.py.
 """
 from __future__ import annotations
 
@@ -114,7 +116,7 @@ def main() -> None:
     payload = base_summary("main invariant regression")
     payload.update(
         {
-            "profile": "quick" if args.quick else "paper",
+            "profile": "quick" if args.quick else "extended",
             "recurrence_validation": recurrence,
             "main_invariants": invariants,
             "result": "all assertions passed",

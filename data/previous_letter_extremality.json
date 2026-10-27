@@ -1,0 +1,49 @@
+{
+  "adjacent_compensation_checks": 2548760,
+  "check": "previous-letter extremality and proved compensation",
+  "counted_objects": "distinct reduced scattered words, not embeddings",
+  "failures": 0,
+  "integer_arithmetic": "exact",
+  "previous_letter_checks": 10088798,
+  "previous_terminal_maximizer_events": 2548760,
+  "profile": "extended",
+  "python_version": "3.12.14",
+  "ranges": [
+    {
+      "alphabet_size": 2,
+      "maximum_length": 20,
+      "previous_letter_checks": 500,
+      "terminal_events": 500
+    },
+    {
+      "alphabet_size": 3,
+      "maximum_length": 12,
+      "previous_letter_checks": 638964,
+      "terminal_events": 319482
+    },
+    {
+      "alphabet_size": 4,
+      "maximum_length": 8,
+      "previous_letter_checks": 1121904,
+      "terminal_events": 373968
+    },
+    {
+      "alphabet_size": 5,
+      "maximum_length": 7,
+      "previous_letter_checks": 3786480,
+      "terminal_events": 946620
+    },
+    {
+      "alphabet_size": 6,
+      "maximum_length": 6,
+      "previous_letter_checks": 4540950,
+      "terminal_events": 908190
+    }
+  ],
+  "result": "all checks passed; no counterexample to previous-letter extremality in the tested ranges",
+  "statement_status": {
+    "adjacent_compensation": "proved: equation (5.2); checked here for the previous terminal",
+    "previous_letter_extremality": "conjectural: Conjecture 5.4"
+  },
+  "terminal_events": 2548760
+}

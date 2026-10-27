@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """Verify the alternating-suffix injection and its inverse.
 
-Paper location: Alternating-Suffix Deletion Lemma in Section 4.
+Paper location: Lemma 2.3 (Alternating-suffix deletion).
 Checked object: the distinct-word injection E_{u,x,k} -> C_{u,z,k-1}.
-Mathematical role: coefficientwise control used by the left half-sandwich.
-The default paper range has n=3 and |u|<=5 and must contain 2,346 sources.
+Mathematical role: coefficientwise control used in the proof of Theorem 1.1.
+The default regression range has n=3 and |u|<=5 and contains 2,346 sources.
 """
 from __future__ import annotations
 

@@ -1,0 +1,63 @@
+name: Verify mathematical computations
+
+on:
+  push:
+    paths:
+      - 'code/**'
+      - 'data/**'
+      - '.github/workflows/verify.yml'
+  pull_request:
+    paths:
+      - 'code/**'
+      - 'data/**'
+      - '.github/workflows/verify.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: '3.11'
+      - name: Reproduce the second draft
+        run: |
+          python code/verify_examples.py --output .verification-output/example_checks.json
+          python code/independent_checks.py --output .verification-output/independent_checks.json
+      - name: Compare recorded results
+        run: |
+          python - <<'PYCODE'
+          import json
+          from pathlib import Path
+
+          for name in ('example_checks.json', 'independent_checks.json'):
+              expected = json.loads((Path('data') / name).read_text(encoding='utf-8'))
+              actual = json.loads((Path('.verification-output') / name).read_text(encoding='utf-8'))
+              for payload in (expected, actual):
+                  payload.pop('elapsed_seconds', None)
+                  payload.pop('python_version', None)
+              if actual != expected:
+                  raise SystemExit(f'Recorded results differ: {name}')
+              print(f'Recorded results match: {name}')
+          canonical = Path('data/previous_letter_extremality.json').read_bytes()
+          compatible = Path('data/section7_conjectures.json').read_bytes()
+          if canonical != compatible:
+              raise SystemExit('Previous-letter compatibility summary differs')
+          PYCODE
+      - name: Check extended regressions
+        run: |
+          python code/verify_append_gain_failure.py
+          python code/verify_diagonal_transfer_failure.py
+          python code/verify_alternating_suffix_injection.py
+          python code/verify_half_sandwich.py --quick
+          python code/verify_main_invariants.py --quick
+          python code/verify_transfer_polynomials.py --quick
+          python code/verify_previous_letter_extremality.py --quick
+          python code/verify_section7_conjectures.py --quick

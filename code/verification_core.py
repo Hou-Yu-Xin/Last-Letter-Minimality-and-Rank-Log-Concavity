@@ -18,9 +18,16 @@ from typing import Dict, Iterable, Iterator, Sequence, Tuple
 Word = Tuple[int, ...]
 Polynomial = Tuple[int, ...]
 
+if not __debug__:
+    raise RuntimeError(
+        "Verification requires assertions; run Python without -O or -OO."
+    )
+
+
 MAIN_RANGES = ((2, 20), (3, 15), (4, 11), (5, 9), (6, 7))
 PATH_RANGES = ((2, 20), (3, 12), (4, 8), (5, 7), (6, 6))
-SECTION7_RANGES = PATH_RANGES
+EXTREMALITY_RANGES = PATH_RANGES
+SECTION7_RANGES = EXTREMALITY_RANGES  # Compatibility with first-draft scripts.
 RECURRENCE_RANGES = ((3, 9), (4, 8))
 
 

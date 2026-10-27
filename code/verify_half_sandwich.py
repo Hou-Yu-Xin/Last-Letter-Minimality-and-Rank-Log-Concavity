@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 """Verify structural defect identities and return/open path sandwiches.
 
-Paper locations: Section 4 half-sandwich lemmas and Corollaries 5.2/5.3.
+Paper locations: Corollary 4.2 and the return/open paths in Section 4.2.
 Checked objects: the transfer-surplus decomposition, left-defect expansion,
 right-defect cancellation, and both cross-multiplied path inequalities.
 The structural range has exactly 2,304 (u,z,x,k) instances per identity.
+The extended default run retains the first-draft path regression ranges.
 """
 from __future__ import annotations
 
@@ -214,7 +215,7 @@ def main() -> None:
     payload = base_summary("half-sandwich identities and path regression")
     payload.update(
         {
-            "profile": "quick" if args.quick else "paper",
+            "profile": "quick" if args.quick else "extended",
             "structural_identities": identities,
             "path_sandwiches": paths,
             "result": "all assertions passed",

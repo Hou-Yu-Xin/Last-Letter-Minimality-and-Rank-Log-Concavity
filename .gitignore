@@ -11,3 +11,6 @@ Thumbs.db
 *.bak
 .vscode/
 .idea/
+
+# Local verification output; full reference results live in data/.
+.verification-output/

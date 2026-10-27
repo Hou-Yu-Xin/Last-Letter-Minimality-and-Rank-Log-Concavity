@@ -41,7 +41,7 @@
     ],
     "return_paths": 1190110
   },
-  "profile": "paper",
+  "profile": "extended",
   "python_version": "3.12.13",
   "result": "all assertions passed",
   "structural_identities": {

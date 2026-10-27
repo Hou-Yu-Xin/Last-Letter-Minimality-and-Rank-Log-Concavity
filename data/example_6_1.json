@@ -1,6 +1,6 @@
 {
   "append_direction": "2",
-  "check": "Example 6.1 append-gain failure",
+  "check": "Example 5.3 append-gain failure",
   "coefficients": [
     0,
     0,
@@ -16,7 +16,7 @@
   "integer_arithmetic": "exact",
   "log_concavity_lhs": 4,
   "log_concavity_rhs": 6,
-  "python_version": "3.12.13",
+  "python_version": "3.12.14",
   "result": "expected failure reproduced",
   "trimmed_coefficients": [
     1,

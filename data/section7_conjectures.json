@@ -1,13 +1,13 @@
 {
   "adjacent_compensation_checks": 2548760,
-  "check": "Section 7 conjecture regression",
+  "check": "previous-letter extremality and proved compensation",
   "counted_objects": "distinct reduced scattered words, not embeddings",
   "failures": 0,
   "integer_arithmetic": "exact",
   "previous_letter_checks": 10088798,
   "previous_terminal_maximizer_events": 2548760,
-  "profile": "paper",
-  "python_version": "3.12.13",
+  "profile": "extended",
+  "python_version": "3.12.14",
   "ranges": [
     {
       "alphabet_size": 2,
@@ -40,6 +40,10 @@
       "terminal_events": 908190
     }
   ],
-  "result": "no counterexamples in the tested ranges",
+  "result": "all checks passed; no counterexample to previous-letter extremality in the tested ranges",
+  "statement_status": {
+    "adjacent_compensation": "proved: equation (5.2); checked here for the previous terminal",
+    "previous_letter_extremality": "conjectural: Conjecture 5.4"
+  },
   "terminal_events": 2548760
 }
